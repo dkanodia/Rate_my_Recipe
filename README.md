@@ -121,16 +121,23 @@ The dataset has missing columns of `average_ratings`, `description` and `name`. 
 - The computed p-value: 0.0020
 - The p-value is well below 0.05, so we reject the null hypothesis. This indicates that the missingness in average_rating is significantly dependent on n_ingredients. This suggests that recipes with a certain number of ingredients might be more likely to have missing ratings.
 
-## Hypothesis test: Effect of number of steps on average ratings
-In this hypothesis test, we aimed to determine whether the number of steps in a recipe affects its average rating.
+## Hypotheses test: Effect of Recipe Complexity on Average Rating
 
-Hypotheses:
 - Null Hypothesis (H₀): The number of steps in a recipe does not affect its average rating.
 - Alternative Hypothesis (H₁): Recipes with more steps have a different average rating than simpler recipes.
-- Test Statistic: We used the absolute difference in mean ratings between simple recipes (less than 9 steps) and complex recipes (9 or more steps) as our test statistic.
+
+## Test Statistic and Significance Level:
+- Test Statistic: Absolute difference in means between simple recipes (fewer than 9 steps) and complex recipes (9 or more steps). This is a good choice - because we are comparing two group means, and the absolute difference allows us to detect both increases and decreases in ratings.
+- Significance Level (α): 0.05, which is a common threshold in hypothesis testing to determine statistical significance.
 
 Results:
-- Observed absolute difference in means: Calculated from the dataset
-- Permutation test p-value: 0.0010
-- Decision: Since the p-value is well below the conventional significance threshold of 0.05, we reject the null hypothesis. This suggests that recipes with more steps tend to have significantly different average ratings compared to simpler recipes.
+- Observed Test Statistic: Calculated from the dataset
+- Permutation Test p-value: 0.0010
 
+Conclusion: Since the p-value is much lower than 0.05, we reject the null hypothesis. This suggests that the number of steps in a recipe is likely associated with differences in average rating.
+
+Justification for Choices:
+
+- Permutation Test: This non-parametric approach is appropriate because it does not assume normality and allows for a direct comparison of observed differences under random permutations.
+- Absolute Difference in Means: Captures deviations in either direction, making the test more flexible.
+- Significance Level (0.05): A standard threshold that balances Type I and Type II errors.
