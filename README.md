@@ -1,3 +1,3 @@
-# Recipe_rating_prediction
+# Rate My Recipe
 
 This is a Dsc80 Project
