@@ -221,6 +221,67 @@ Next Steps for Improvement:
 
 - HyperParameter tuning: Tuning all hyperparameters using gridSearchCV can give better results.
 
+## Modeling and Feature Engineering for Recipe Rating Prediction
+
+1. Features Added and Their Relevance
+The following features were selected based on their potential to provide meaningful insights into the recipe's characteristics, which would likely influence the user ratings:
+
+1.1 Calories (Quantitative)
+Reasoning: The number of calories in a recipe is an important factor when predicting ratings. Recipes with higher caloric content might appeal to different user segments (e.g., those who are calorie-conscious vs. those who are not). This feature provides essential information about the recipe's complexity and dietary appeal.
+1.2 Preparation Time in Minutes (Quantitative)
+Reasoning: The amount of time required to prepare a recipe is often correlated with the complexity and effort involved. Recipes that take longer to prepare may be perceived as more sophisticated, which could influence their rating. Users often rate based on the effort required and the perceived value of that effort.
+1.3 Submission Time (Quantitative)
+Reasoning: The age of a recipe could impact its rating. Older recipes might have been rated based on outdated tastes or preferences, while newer recipes might reflect current trends or seasonal preferences. This feature provides a temporal perspective, showing whether newer recipes tend to receive different ratings.
+1.4 Description Length (Quantitative)
+Reasoning: A longer recipe description might indicate a more detailed and potentially more sophisticated recipe. It may also correlate with the clarity and thoroughness of the recipe, both of which can influence user ratings.
+1.5 Simple Recipes (Nominal)
+Reasoning: This binary feature indicates whether the recipe is considered "simple" or not. Simpler recipes may appeal to users who prefer quick and easy meals, while more complex recipes might attract users who enjoy culinary challenges. This feature can help differentiate between user preferences for easy vs. complex dishes.
+These features were selected based on the data generation process. Recipes that are more detailed, fresh, complex, or with higher caloric content might receive different ratings from users, and including them in the model helps the model learn these patterns. These features are aligned with user behavior and preferences in the context of recipe ratings.
+
+2. Model Choice and Hyperparameter Tuning
+2.1 Model Selection: Random Forest Classifier
+The Random Forest Classifier was chosen for this task because:
+
+It is robust and handles both numerical and categorical data well.
+It can model complex relationships between features without requiring specific assumptions.
+It is resistant to overfitting and works well with a large number of features.
+2.2 Hyperparameters Tuned:
+The GridSearchCV method was used to perform hyperparameter optimization. The following hyperparameters were tuned:
+
+Criterion: gini (used for splitting nodes based on Gini impurity)
+Max Depth: None (allows trees to grow until all leaves are pure or until the minimum samples split is reached)
+Min Samples Split: 2 (nodes are split when at least 2 samples are present)
+These hyperparameters were chosen based on the performance observed during cross-validation and experimentation. The max depth of None and min samples split of 2 allowed the model to grow large trees and capture complex relationships, improving its ability to classify recipes accurately.
+
+2.3 Hyperparameter Selection Process:
+GridSearchCV was employed with a 5-fold cross-validation approach to search through the following values:
+Criterion: gini, entropy
+Max Depth: None, 10, 20
+Min Samples Split: 2, 5, 10
+This exhaustive search ensures the best hyperparameters are selected based on model performance on the validation set.
+
+3. Final Model vs. Baseline Model
+3.1 Baseline Model Performance
+Accuracy: 38.53%
+Main issue: The model struggled to predict minority classes (ratings 1, 2, 3), likely due to class imbalance.
+3.2 Final Model Performance
+After applying hyperparameter tuning, the model achieved the following:
+
+Accuracy: 55.34%
+Precision for Rating 5: 0.60 (Significant improvement compared to baseline)
+Recall for Rating 5: 0.80 (Better performance in predicting higher ratings)
+The final model improves upon the baseline model's performance, particularly with higher ratings. The accuracy improvement from 38.53% to 55.34% is notable. However, the model still struggles with predicting the minority classes (ratings 1, 2, and 3), indicating the need for further improvements in handling class imbalance.
+
+3.3 Model Improvements:
+Hyperparameter Tuning: The final model’s hyperparameters (criterion, max depth, and min samples split) allow for better decision tree growth and more accurate predictions for the majority class.
+Feature Engineering: The additional features, like calories, prep time, and description length, provide more relevant information, allowing the model to distinguish between different ratings more effectively.
+4. Future Improvements and Next Steps
+Class Imbalance: Implementing techniques such as SMOTE (Synthetic Minority Over-sampling Technique) or adjusting class weights during training could improve the model’s performance on the minority classes.
+Advanced Models: Experimenting with models such as XGBoost or Neural Networks may provide better handling of the class imbalance and complex relationships between features.
+Feature Expansion: Adding more features, such as user reviews or ingredient list characteristics, could provide more insights into user preferences and further improve prediction accuracy.
+5. Conclusion
+The final model provides a solid foundation for predicting recipe ratings, with notable improvements over the baseline model. While it performs well for high ratings (4 and 5), further efforts to address class imbalance and experiment with advanced models will be essential for improving the prediction of lower ratings.
+
 
 
 
