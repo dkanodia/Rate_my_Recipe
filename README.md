@@ -126,7 +126,8 @@ The dataset has missing columns of `average_ratings`, `description` and `name`. 
 - Null Hypothesis (H₀): The number of steps in a recipe does not affect its average rating.
 - Alternative Hypothesis (H₁): Recipes with more steps have a different average rating than simpler recipes.
 
-## Test Statistic and Significance Level:
+Test Statistic and Significance Level:
+
 - Test Statistic: Absolute difference in means between simple recipes (fewer than 9 steps) and complex recipes (9 or more steps). This is a good choice - because we are comparing two group means, and the absolute difference allows us to detect both increases and decreases in ratings.
 - Significance Level (α): 0.05, which is a common threshold in hypothesis testing to determine statistical significance.
 
