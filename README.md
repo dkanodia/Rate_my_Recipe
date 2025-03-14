@@ -66,3 +66,47 @@ Impact: This new feature provides insight into whether recipe complexity (measur
 8. Converting the submitted Column to DateTime Format
 
 - The submitted column contains dates in string format, so I converted it to a datetime object for easier handling in any time-based analysis. This allows us to conduct time-based analyses (e.g., exploring trends in recipe ratings over time) and helps ensure consistency when working with dates.
+
+## Univariate Analysis
+
+The histogram below shows the distribution of the number of ingredients used in the recipes. The x-axis represents the number of ingredients, while the y-axis indicates the frequency of recipes with that specific number of ingredients.
+
+Interpretation: The distribution is right-skewed, with most recipes containing around 5 to 12 ingredients. There are fewer recipes with a very high number of ingredients, suggesting that simpler recipes with fewer ingredients are more common in the dataset. This trend aligns with general cooking practices, where most dishes require a moderate number of ingredients rather than an excessive amount.
+
+The pie chart below represents the distribution of average recipe ratings in the dataset. The different segments correspond to different rating values, and the percentage labels indicate the proportion of recipes that received each rating.
+
+Interpretation:
+A majority of recipes have an average rating of 5, making up 57% of the dataset, followed by 4-star ratings at 33.5%. Lower ratings (0, 1, 2, and 3) collectively account for a much smaller percentage of the dataset. This suggests that users tend to rate recipes positively, which could indicate a preference for rating only recipes they liked or potential bias in the rating system.
+
+## Bivariate Analysis
+This box plot visualizes the relationship between the number of ingredients in a recipe and its average rating. The median number of ingredients appears to be consistent across all ratings and recipes with very high or very low ratings tend to have a wider range of ingredient counts.
+
+Interpretation:
+The number of ingredients does not have a strong impact on user ratings. Moreover, both simple and complex recipes can be rated highly or poorly. There are also a significant number of outliers, especially in recipes with high ingredient counts.
+
+This box plot visualizes the relationship between the length of description of a recipe and its average rating. The length appears to be consistent across all ratings and recipes with very high tend to have a wider range of ingredient counts.
+
+Interpretation:
+The length of description may have an effect on the average rating. Since the rating with higher average length tends to be higher. 
+
+## Interesting Aggregates
+
+1. Caloric Trends & Ratings:
+
+- Recipes with 0-star ratings tend to have the highest average calorie count (514.55 kcal), suggesting that high-calorie recipes might not always be favored.
+- 4-star rated recipes have the lowest average calories (412.05 kcal), implying that moderately healthy recipes might be preferred.
+- 5-star recipes have slightly higher calories (434.25 kcal), indicating that people may still enjoy slightly richer dishes.
+
+2. Recipe Description Length & Ratings:
+- The average description length does not vary significantly across ratings.
+- However, 0-star recipes have the longest average descriptions (236.03 characters), suggesting that long descriptions do not guarantee better ratings.
+- The median description length remains around 170-177 characters, reinforcing that a concise but informative description is a common trait.
+
+## NMAR Analysis
+
+The dataset has missing columns of `average_ratings`, `description` and `name`. We drop the column of name since it does not have any information.
+
+The average_rating column is missing for some recipes. If a recipe has no ratings, it's likely because no one has reviewed it yet rather than randomness or dependency on another variable.
+This suggests that the missingness is directly related to the column's nature: a recipe with missing ratings is likely an unpopular or newly added recipe.
+Conclusion: average_rating is likely NMAR because its missingness is tied to the lack of user engagement.
+
