@@ -106,7 +106,31 @@ The length of description may have an effect on the average rating. Since the ra
 
 The dataset has missing columns of `average_ratings`, `description` and `name`. We drop the column of name since it does not have any information.
 
-The average_rating column is missing for some recipes. If a recipe has no ratings, it's likely because no one has reviewed it yet rather than randomness or dependency on another variable.
-This suggests that the missingness is directly related to the column's nature: a recipe with missing ratings is likely an unpopular or newly added recipe.
-Conclusion: average_rating is likely NMAR because its missingness is tied to the lack of user engagement.
+- `average_rating` is missing for some recipes. If a recipe has no ratings, it's likely because no one has reviewed it yet rather than randomness or dependency on another variable. 
+- This suggests that the missingness is directly related to the column's nature: a recipe with missing ratings is likely an unpopular or newly added recipe. Thus `average_rating` is likely NMAR because its missingness is tied to the lack of user engagement.
+
+  The goal of these tests was to determine whether the missingness in the average_rating column is dependent on the minutes and n_ingredients columns.
+
+## Results for minutes
+- The observed difference in means: 117.34 minutes
+- The computed p-value: 0.0520
+- Since the p-value is slightly above the conventional 0.05 threshold, we fail to reject the null hypothesis. This suggests that missingness in average_rating is not significantly dependent on minutes. However, given that the p-value is very close to 0.05, there may still be some weak association worth exploring further.
+
+## Results for n_ingredients
+- The observed difference in means: 0.2542
+- The computed p-value: 0.0020
+- The p-value is well below 0.05, so we reject the null hypothesis. This indicates that the missingness in average_rating is significantly dependent on n_ingredients. This suggests that recipes with a certain number of ingredients might be more likely to have missing ratings.
+
+## Hypothesis test: Effect of number of steps on average ratings
+In this hypothesis test, we aimed to determine whether the number of steps in a recipe affects its average rating.
+
+Hypotheses:
+- Null Hypothesis (H₀): The number of steps in a recipe does not affect its average rating.
+- Alternative Hypothesis (H₁): Recipes with more steps have a different average rating than simpler recipes.
+- Test Statistic: We used the absolute difference in mean ratings between simple recipes (less than 9 steps) and complex recipes (9 or more steps) as our test statistic.
+
+Results:
+- Observed absolute difference in means: Calculated from the dataset
+- Permutation test p-value: 0.0010
+- Decision: Since the p-value is well below the conventional significance threshold of 0.05, we reject the null hypothesis. This suggests that recipes with more steps tend to have significantly different average ratings compared to simpler recipes.
 
