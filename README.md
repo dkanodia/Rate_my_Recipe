@@ -142,3 +142,86 @@ Justification for Choices:
 - Permutation Test: This non-parametric approach is appropriate because it does not assume normality and allows for a direct comparison of observed differences under random permutations.
 - Absolute Difference in Means: Captures deviations in either direction, making the test more flexible.
 - Significance Level (0.05): A standard threshold that balances Type I and Type II errors.
+
+## Prediction Problem Statement:
+
+I aim to predict the ratings of recipes based on various features such as ingredients, cooking time, number of steps, and user reviews. This is a multiclass classification problem, as the ratings fall into five discrete categories: [1, 2, 3, 4, 5].
+
+Response Variable:
+ - The response variable is the recipe rating, which represents user satisfaction with a given recipe. We chose this because ratings are a key factor in determining the popularity and perceived quality of recipes.
+
+Evaluation Metric:
+- We will use the F1-score as the primary evaluation metric instead of accuracy because:
+
+Since Ratings are unbalanced i.e higher concentration of 4s and 5s, we can use F1-score balances precision and recall, making it a better choice in imbalanced scenarios.
+Accuracy could be misleading if the model simply predicts the most common rating without learning meaningful patterns.
+
+Justification for Feature Selection:
+- At the time of prediction, we have access to all the columns in the rating dataset, as listed in the introduction section. These features describe the recipes themselves—such as ingredients, cooking time, number of steps, and other attributes—ensuring that our model only uses information that would be available even if no users have rated or reviewed the recipe yet. This guarantees that our predictions are based solely on intrinsic recipe characteristics rather than future user interactions.
+
+## Baseline Model
+
+Model Description
+ - We used a Random Forest Classifier for this classification problem. A Random Forest is an ensemble model that builds multiple decision trees and combines their outputs to make a final prediction, providing a robust and reliable model that can handle both numerical and categorical features.
+
+Features in the Model
+We selected the following features for the baseline model:
+
+ - `Calories` (Quantitative): This is a continuous variable representing the caloric content of the recipe.
+ - `Simple Recipes` (Nominal): This feature indicates whether a recipe is considered "simple" (e.g., a binary flag, 1 for "simple," 0 for "not simple").
+
+Feature Types and Encoding:
+
+Quantitative Features:
+ - calories: This is already a numerical feature and used directly without any encoding.
+Nominal Features:
+- simple recipes: This feature was encoded using binary encoding, where "simple" is represented as 1 and "not simple" is represented as 0.
+
+Model Performance
+- After training the model on 80% of the dataset and evaluating it on the remaining 20%, we used the following metrics:
+
+Classification Report (Performance Metrics):
+- The model's performance is summarized below:
+
+Precision: The proportion of true positive predictions relative to all positive predictions for each class.
+Recall: The proportion of true positive predictions relative to all actual positives for each class.
+F1-score: The harmonic mean of precision and recall, which balances both metrics.
+Support: The number of instances for each class in the test set.
+
+              precision    recall  f1-score   support
+           1       0.01      0.04      0.01       125
+           2       0.01      0.05      0.02       135
+           3       0.05      0.14      0.07       768
+           4       0.35      0.32      0.33      5667
+           5       0.59      0.45      0.51      9527
+    accuracy                           0.39     16222
+   macro avg       0.20      0.20      0.19     16222
+weighted avg       0.47      0.39      0.42     16222
+Accuracy: 38.53%
+
+Analysis of Model Performance:
+
+ - Class Imbalance: The model performs well on the more frequent ratings (4 and 5), but it significantly underperforms on ratings 1, 2, and 3. This suggests the model is biased towards predicting higher ratings due to the class imbalance.
+
+ - F1-scores: The F1-scores for the lower ratings (1, 2, 3) are very low, indicating that the model struggles to predict these classes accurately.
+
+ - Macro vs. Weighted Average: The macro average F1-score is quite low (0.19), which shows that the model is not handling the minority classes well.
+However, the weighted average F1-score (0.42) is slightly better, reflecting better performance on the majority class (rating 5).
+
+The model is not ideal for the following reasons:
+
+- Low Performance on Minority Classes: The model does not generalize well across all ratings. It struggles particularly with predicting lower ratings (1, 2, and 3).
+
+- Class Imbalance: The model's high accuracy is largely driven by the prevalence of higher ratings (4 and 5). This suggests that the model may simply be predicting the majority class, which is not ideal for this task.
+
+- Room for Improvement: The accuracy is low (38.53%), which indicates that the model could benefit from improvements in feature selection, handling class imbalance, or trying different models.
+
+Next Steps for Improvement:
+- Feature Engineering: We can add more relevant features such as ingredient count, preparation time, or user reviews to provide the model with more information.
+
+- HyperParameter tuning: Tuning all hyperparameters using gridSearchCV can give better results.
+
+
+
+
+
