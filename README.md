@@ -1,7 +1,7 @@
 # Rate My Recipe
 Authors: Divyansh Kanodia
 
-Introduction
+## Introduction
 
 Food plays a pivotal role in our daily lives, influencing our health, culture, and emotions. Cooking, for many, is not only a necessity but a fulfilling hobby that brings creativity and joy to the kitchen. However, as much as we enjoy flavorful meals, we also need to consider the nutritional impact of the food we consume. With the rising concerns about health and diet, understanding how specific ingredients or nutrients affect our food preferences has become more important than ever. This is particularly true for recipes that vary in their nutritional content, such as sugar, fat, and protein.
 
