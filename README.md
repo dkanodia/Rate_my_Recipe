@@ -59,7 +59,10 @@ This project investigates how recipe characteristics, such as nutritional conten
    - A binary column `simple recipes` is created to classify recipes based on their complexity (simple with ≤9 steps, complex with >9 steps).
 
 8. **DateTime Conversion:**
-   - The `submitted` column is converted to DateTime format to enable easier handling of time-based analysis.
+   - The `submitted` column is converted to DateTime format and the year is extracted to enable easier handling of time-based analysis.
+
+9. **Adding `description_len`:**
+   - A `description_len` column is added to the relationship between description and average_rating better.
 
 ## Univariate Analysis
 
