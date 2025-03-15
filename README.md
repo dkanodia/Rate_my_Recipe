@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Food plays a pivotal role in our daily lives, influencing our health, culture, and emotions. Cooking, for many, is not only a necessity but a fulfilling hobby that brings creativity and joy to the kitchen. However, as much as we enjoy flavorful meals, we also need to consider the nutritional impact of the food we consume. With the rising concerns about health and diet, understanding how specific ingredients or nutrients affect our food preferences has become more important than ever. This is particularly true for recipes that vary in their nutritional content, such as sugar, fat, and protein.
+Food plays a pivotal role in our daily lives, influencing our health, culture, and emotions. Cooking, for many, is not only a necessity but a fulfilling hobby that brings creativity and joy to the kitchen. However, as much as we enjoy flavorful meals, we also need to consider the nutritional impact of the food we consume. With the rising concerns about health and diet, understanding how specific ingredients or nutrients affect our food preferences has become more important than ever. This is particularly true for recipes that vary in their nutritional content.
 
 The first dataset, `recipe`, contains 83782 rows, indicating 83782 unique recipes, with 10 columns recording the following information:
 
@@ -33,7 +33,7 @@ The second dataset, `interactions`, contains 731927 rows and each row contains a
 | `'rating'`    | Rating given        |
 | `'review'`    | Review text         |
 
-This project investigates how recipe characteristics, such as nutritional content, preparation time, and ingredient count, influence a recipe’s average rating. The central question is: What factors most significantly influence a recipe's average rating?
+This project investigates how recipe characteristics, such as nutritional content, preparation time, and ingredient count, influence a recipe’s average rating. The central question is: **What factors most significantly influence a recipe's average rating?**
 
 ## Data Cleaning and Analysis
 
@@ -41,7 +41,7 @@ This project investigates how recipe characteristics, such as nutritional conten
    - The `recipe` dataset is joined with the `interactions` dataset based on the `id` and `recipe_id` columns to combine recipe details with their corresponding ratings.
 
 2. **Handling Missing Ratings:**
-   - Ratings of 0 are replaced with NaN to treat them as missing or invalid ratings for better accuracy.
+   - Ratings of 0 are replaced with NaN to treat them as missing or invalid ratings for better accuracy. For majority of the analysis however we treat the missing data as it's own category of 0. This is done to prevent and inherent bias that might exist in imputation.
 
 3. **Calculating Average Ratings:**
    - The average rating for each recipe is calculated by grouping the merged dataset by `id` and computing the mean of all ratings for each recipe.
@@ -188,7 +188,7 @@ This table summarizes the calorie content and description length for recipes gro
 
 Justification for Choices:
 
-- Permutation Test: This non-parametric approach is appropriate because it does not assume normality and allows for a direct comparison of observed differences under random permutations.
+- Permutation Test: We use permutation testing because we are comparing the distribution of two features rather than distribution of a feature with the population.
 - Absolute Difference in Means: Captures deviations in either direction, making the test more flexible.
 - Significance Level (0.05): A standard threshold that balances Type I and Type II errors.
 
@@ -262,9 +262,8 @@ The dataset contains two main tables:
 - **Hyperparameter Tuning**: Optimized model parameters to achieve better performance.
 
 ### Future Improvements:
-- **Class Imbalance**: Techniques like SMOTE or adjusting class weights during training could improve model performance for minority classes.
-- **Advanced Models**: Experimenting with models like XGBoost or Neural Networks could help improve prediction accuracy.
-- **Feature Expansion**: Adding features like user reviews or ingredient lists could further improve the model’s predictive power.
+- **Advanced Models**: Experimenting with Neural Networks could help improve prediction accuracy.
+- **Feature Expansion**: Using user's past reviws could further improve the model’s predictive power by reducing bias.
 
 ## Fairness Analysis
 
@@ -277,6 +276,13 @@ The dataset contains two main tables:
 - **Alternative Hypothesis (H₁)**: There is a difference in precision between Group X and Group Y.
 - **Test Statistic**: Absolute difference in precision between the two groups.
 - **p-value**: 0.996 (greater than 0.05).
+
+<iframe
+  src="fairness_model.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Conclusion:
 - We fail to reject the null hypothesis, indicating no significant difference in precision between "simple" and "non-simple" recipes. The precision difference is minimal.
