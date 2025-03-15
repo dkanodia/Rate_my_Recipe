@@ -148,9 +148,23 @@ This table summarizes the calorie content and description length for recipes gro
 - **Analysis of Missingness Based on Recipe Characteristics:**
    - **For `minutes`:**
      - The observed difference in means was 117.34 minutes, with a p-value of 0.0520. Since the p-value is slightly above 0.05, we fail to reject the null hypothesis. Missingness in `average_rating` does not appear to be significantly dependent on the recipe’s preparation time.
+    
+<iframe
+  src="permutation_test_minutes.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
    
    - **For `n_ingredients`:**
      - The observed difference in means was 0.2542, with a p-value of 0.0020. The p-value is below 0.05, so we reject the null hypothesis, indicating that missingness in `average_rating` is significantly related to the number of ingredients.
+    
+ <iframe
+  src="permutation_test_n_ingredients.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Hypothesis Test: Effect of Recipe Complexity on Average Rating
 
