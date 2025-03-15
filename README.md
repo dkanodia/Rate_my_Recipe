@@ -188,9 +188,9 @@ This table summarizes the calorie content and description length for recipes gro
 
 Justification for Choices:
 
-- Permutation Test: We use permutation testing because we are comparing the distribution of two features rather than distribution of a feature with the population.
-- Absolute Difference in Means: Captures deviations in either direction, making the test more flexible.
-- Significance Level (0.05): A standard threshold that balances Type I and Type II errors.
+- **Permutation Test:** We use permutation testing because we are comparing the distribution of two features rather than distribution of a feature with the population.
+- **Absolute Difference in Means:** Captures deviations in either direction, making the test more flexible.
+- **Significance Level (0.05):** A standard threshold that balances Type I and Type II errors.
 
 <iframe
   src="permutation_test_minutes.html"
