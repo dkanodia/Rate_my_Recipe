@@ -107,6 +107,18 @@ This project investigates how recipe characteristics, such as nutritional conten
 
 ## Interesting Aggregates
 
+
+| Rating | Calories Mean | Calories Median | Calories Std | Description Length Mean | Description Length Median | Description Length Std |
+|--------|---------------|-----------------|--------------|-------------------------|---------------------------|-------------------------|
+| 0      | 515.05        | 338.1           | 776.16       | 235.67                  | 174.0                     | 246.64                  |
+| 1      | 446.13        | 276.9           | 612.53       | 224.62                  | 168.5                     | 195.68                  |
+| 2      | 442.99        | 307.0           | 672.84       | 221.76                  | 175.5                     | 181.24                  |
+| 3      | 444.71        | 311.6           | 658.71       | 221.57                  | 172.0                     | 208.67                  |
+| 4      | 411.91        | 305.6           | 504.49       | 227.03                  | 177.0                     | 195.77                  |
+| 5      | 434.21        | 303.6           | 692.57       | 222.94                  | 174.0                     | 194.65                  |
+
+This table summarizes the calorie content and description length for recipes grouped by their rating categories, ranging from 0 to 5.
+
 1. **Caloric Trends & Ratings:**
    - Recipes with 0-star ratings have the highest average calorie count (514.55 kcal), while 4-star rated recipes have the lowest average calories (412.05 kcal), suggesting users might prefer moderately healthy recipes.
 
