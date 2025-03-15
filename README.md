@@ -192,6 +192,13 @@ Justification for Choices:
 - Absolute Difference in Means: Captures deviations in either direction, making the test more flexible.
 - Significance Level (0.05): A standard threshold that balances Type I and Type II errors.
 
+<iframe
+  src="permutation_test_minutes.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 # Recipe Rating Prediction
 
 This project aims to predict user ratings for recipes based on various features, such as ingredients, preparation time, number of steps, and other recipe characteristics. The goal is to classify recipes into five discrete rating categories: [1, 2, 3, 4, 5].
