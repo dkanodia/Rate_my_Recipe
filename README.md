@@ -65,6 +65,12 @@ This project investigates how recipe characteristics, such as nutritional conten
 
 - **Number of Ingredients Distribution:**
    - The histogram reveals a right-skewed distribution of the number of ingredients, with most recipes containing between 5 to 12 ingredients. This suggests simpler recipes with fewer ingredients are more common.
+<iframe
+  src="n_ingredients_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 - **Distribution of Average Ratings:**
    - The pie chart displays that most recipes receive a 5-star rating (57%), followed by 4 stars (33.5%), and lower ratings account for a small percentage. This suggests users generally rate recipes positively.
