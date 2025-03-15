@@ -64,6 +64,18 @@ This project investigates how recipe characteristics, such as nutritional conten
 9. **Adding `description_len`:**
    - A `description_len` column is added to the relationship between description and average_rating better.
 
+The table shows the first 5 rows of the dataset after cleaning
+
+| `minutes` | `submitted` | `n_steps` | `description`                                | `n_ingredients` | `average_rating` | `calories` | `total fat (PDV)` | `sugar (PDV)` | `sodium (PDV)` | `protein (PDV)` | `saturated fat (PDV)` | `carbohydrates (PDV)` | `simple recipes` | `description_len` | `missing_rating` |
+|-----------|-------------|-----------|----------------------------------------------|-----------------|------------------|------------|-------------------|----------------|-----------------|------------------|-----------------------|-----------------------|------------------|-------------------|------------------|
+| 40        | 2008        | 10        | these are the most; chocolatey, moist, rich, ... | 9               | 4                | 138.4      | 10.0              | 50.0           | 3.0             | 3.0              | 19.0                  | 6.0                   | 1                | 260               | 0                |
+| 45        | 2011        | 12        | this is the recipe that we use at my school ... | 11              | 5                | 595.1      | 46.0              | 211.0          | 22.0            | 13.0             | 51.0                  | 26.0                  | 0                | 230               | 0                |
+| 40        | 2008        | 6         | since there are already 411 recipes for bro... | 9               | 5                | 194.8      | 20.0              | 6.0            | 32.0            | 22.0             | 36.0                  | 3.0                   | 1                | 369               | 0                |
+| 120       | 2008        | 7         | why a millionaire pound cake?  because it's... | 7               | 5                | 878.3      | 63.0              | 326.0          | 13.0            | 20.0             | 123.0                 | 39.0                  | 1                | 210               | 0                |
+| 90        | 2012        | 17        | ready, set, cook! special edition contest ... | 13              | 5                | 267.0      | 30.0              | 12.0           | 12.0            | 29.0             | 48.0                  | 2.0                   | 0                | 201               | 0                |
+
+
+
 ## Univariate Analysis
 
 - **Number of Ingredients Distribution:**
